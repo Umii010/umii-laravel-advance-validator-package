@@ -1,29 +1,29 @@
 {
-  "name": "umii/umii-laravel-advance-validator-package",
-  "description": "Advanced validation rules for Laravel not provided by default.",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "umii"
-    }
-  ],
-  "require": {
-    "php": "^8.1",
-    "illuminate/support": "^10.0|^11.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Umii\\AdvancedValidator\\": "src/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Umii\\AdvancedValidator\\AdvancedValidationServiceProvider"
-      ]
-    }
-  },
-  "minimum-stability": "stable",
-  "prefer-stable": true
+    "name": "umii/laravel-advance-validator-package",
+    "description": "A Laravel package providing advanced validation rules beyond the default set.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Umer Shahzad",
+            "email": "umii020@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "illuminate/support": ">=9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Umii\\AdvanceValidator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Umii\\AdvanceValidator\\AdvanceValidatorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
 }
