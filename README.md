@@ -18,26 +18,39 @@ php artisan vendor:publish --tag=config
 
 ## Available Rules
 
-- `strong_password`
-- `username`
-- `phone`
-- `iban`
-- `credit_card`
-- `base64_image`
-- `no_emoji`
-- `slug`
-- `hex_color`
-- `geo_coordinate`
-- `uuid_v7`
+- `alpha_spaces` — Letters (any language) and single spaces only; no leading/trailing/double spaces.
+- `username` — 3–20 chars, starts with a letter, contains letters/numbers/underscores, no double underscores.
+- `phone_number` — Basic international validation (10–15 digits). Accepts `+`, space, `()`, `-` as separators.
+- `strong_password` — Min 8 chars, includes upper, lower, digit, and special; no spaces.
+- `disposable_email` — Blocks emails from domains listed in `config/umii_advance_validator.php` (`disposable_domains`).
+- `geo_coordinate` — Validates a `latitude, longitude` pair.
+- `uuid_v7` — Validates UUID v7 format.
 
-## Example Usage
+## Usage
 
 ```php
-$request->validate([
-    'password' => 'required|strong_password',
-    'username' => 'required|username',
-    'phone' => 'nullable|phone',
+$validator = Validator::make($request->all(), [
+    'name'     => 'required|alpha_spaces',
+    'email'    => 'required|email|unique:users,email|disposable_email',
+    'phone'    => 'required|phone_number',
+    'password' => 'required|min:8|strong_password',
+    'username' => 'nullable|username',
 ]);
+```
+
+## Configuration
+
+`config/umii_advance_validator.php`:
+
+```php
+return [
+    'enabled' => true,
+    'disposable_domains' => [
+        'mailinator.com',
+        '10minutemail.com',
+        // ...
+    ],
+];
 ```
 
 ## Author
