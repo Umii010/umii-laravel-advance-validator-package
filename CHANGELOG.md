@@ -8,6 +8,7 @@
 - Added `credit_card` validation
 - Added `base64_image` validation
 - Added `no_emoji` validation
+- Added `disposable_email` validation
 - Added `slug` validation
 - Added `hex_color` validation
 - Added `geo_coordinate` validation
